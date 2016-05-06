@@ -36,5 +36,8 @@ module Workspace
     end
     
     config.middleware.use AsyncEvents
+    I18n.enforce_available_locales = false
+    config.i18n.available_locales = [:en, :ru, :he]
+    I18n.default_locale = :he
   end
 end

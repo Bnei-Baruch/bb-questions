@@ -1,32 +1,37 @@
 Rails.application.routes.draw do
-  resources :application_setups
-  resources :languages
-  resources :app_setup_types
-  resources :questions do
-    collection do
-      get 'moderator_monitor'
-      get 'client_monitor'
+  
+  scope '(:locale)' do 
+    match "/home/loc_lang" => "home#loc_lang", :as => 'loc_lang', via: 'post'
+    
+    resources :application_setups
+    resources :languages
+    resources :app_setup_types
+    resources :questions do
+      collection do
+        get 'moderator_monitor'
+        get 'client_monitor'
+      end
+      
+      member do
+        get 'moderator_question'
+      end
     end
     
-    member do
-      get 'moderator_question'
-    end
+    resources :users
+    root 'questions#client_monitor'
+    
+    get 'home/default'
+    get 'home/about'
+    get 'home/contact_us'
+    
+    match '/about',       to: 'home#about',           via: 'get'
+    match '/contact_us',  to: 'home#contact_us',      via: 'get'    
+    
+    
+    get    'login'   => 'sessions#new'
+    post   'login'   => 'sessions#create'
+    delete 'logout'  => 'sessions#destroy'
   end
-  
-  resources :users
-  root 'questions#client_monitor'
-  
-  get 'home/default'
-  get 'home/about'
-  get 'home/contact_us'
-  
-  match '/about',       to: 'home#about',           via: 'get'
-  match '/contact_us',  to: 'home#contact_us',      via: 'get'    
-  
-  
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
     
 
   # The priority is based upon order of creation: first created -> highest priority.
