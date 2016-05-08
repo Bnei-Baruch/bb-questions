@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :moderator_question]
+  before_action :log_in_user, except: [:client_monitor]
 
   def moderator_monitor
     @questions = Question.unselected.all.order(id: :desc)

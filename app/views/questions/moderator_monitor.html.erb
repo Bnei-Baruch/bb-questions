@@ -2,7 +2,7 @@
 
 <div id="moderator-monitor" class="moderator-monitor row">
   
-  <h4>UnSelected</h4>
+  <h4><%= t('questions.monitor.unselected') %></h4>
   <div id="unselected-questions-cont" class="questions-cont unselected col-md-6">
     <%- @questions.each do |question| %>
     	<%= render partial: "moderator_question_form", 
@@ -11,7 +11,7 @@
   </div>
   
   
-  <h4>Selected</h4>
+  <h4><%= t('questions.monitor.selected') %></h4>
   <div id="selected-questions-cont" class="questions-cont selected col-md-6">
     <%- @selected_questions.each do |question| %>
     
