@@ -241,6 +241,7 @@ en:
   update: 'Update'
   open: 'Open'
   list: 'List'
+  send: 'Send'
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
@@ -347,4 +348,6 @@ en:
       list: 'Questions list'
     edit:
       editing: 'Editing Question'
+    client_monitor:
+      enter_question_text: 'Enter Question text here!'
 #END:Questions

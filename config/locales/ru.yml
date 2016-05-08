@@ -287,6 +287,7 @@ ru:
   update: 'Сохранить'
   open: 'Открыть'
   list: 'Список'
+  send: 'Отослать'
   will_paginate:
     previous_label: 'Предыдущий'
     next_label: 'Следующий'
@@ -356,7 +357,7 @@ ru:
         password_confirmation: 'Подтвердить пароль'
         admin: 'Админ'
       question:
-        from: 'Откуда'
+        from: 'От'
         ip: 'IP'
         banned: 'запрещенный'
         selected: 'Выбранный'
@@ -393,4 +394,6 @@ ru:
       list: 'Список Вопросов'
     edit:
       editing: 'Изменение Вопроса'
+    client_monitor:
+      enter_question_text: 'Введите текст вопроса здесь!'
 #END:Questions

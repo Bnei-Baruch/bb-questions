@@ -232,6 +232,7 @@ he:
   update: 'עדכון'
   open: 'לפתוח'
   list: 'רשימה'
+  send: 'שלח'
   will_paginate:
     previous_label: 'קודם'
     next_label: 'הבא'
@@ -302,7 +303,7 @@ he:
         password_confirmation: 'אימות סיסמא'
         admin: 'Admin'
       question:
-        from: 'מהיכן'
+        from: 'מאת'
         ip: 'IP'
         banned: 'אסור'
         selected: 'נבחר'
@@ -339,4 +340,6 @@ he:
       list: 'רשימת שאלות'
     edit:
       editing: 'עריכת שאלה'
+    client_monitor:
+      enter_question_text: 'הזן שאילתה כאן'
 #END:Questions

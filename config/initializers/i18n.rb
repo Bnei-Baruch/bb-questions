@@ -10,6 +10,6 @@
 
 LANGUAGES = [
     ['English',                  'en'],
-    ['Russian',                  'ru'],
-    ['Hebrew',                   'he']
+    ['Русский',                  'ru'],
+    ['עִברִית',                   'he']
 ]

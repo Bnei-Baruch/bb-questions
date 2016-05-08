@@ -1,4 +1,7 @@
 <div id="question-cont-<%= question.id %>" class="panel panel-default">
-    <div class="panel-heading"><%= "#{question.name} From #{question.from}" %></div>
+    <div class="panel-heading">
+        <%= "#{question.name} " %>
+        <%= question.from.blank?? "": "#{ t('activerecord.attributes.question.from')} #{question.from}" %>
+    </div>
     <div class="panel-body"><%= question.question %></div>
 </div>

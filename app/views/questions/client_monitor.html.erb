@@ -4,19 +4,19 @@
     <%= render 'shared/error_messages', object: f.object %>
   
     <div class="form-group">
-      <input class="form-control" type="text" name="question[name]" id="question_name" laceholder="Name" autofocus>
+      <input class="form-control" type="text" name="question[name]" id="question_name" placeholder="<%= t('name') %>" autofocus>
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="question[from]" id="question_from" placeholder="From" autofocus>
+      <input class="form-control" type="text" name="question[from]" id="question_from" placeholder="<%= t('activerecord.attributes.question.from') %>" autofocus>
     </div>
-    <button class="btn btn-primary" type="submit">Send</button>
+    <button class="btn btn-primary" type="submit"><%= t('send') %></button>
     <div class="form-group" style="display:block;">
-      <textarea class="form-control" name="question[question]" id="question_question" placeholder="Enter Question text here!" autofocus></textarea>
+      <textarea class="form-control" name="question[question]" id="question_question" placeholder="<%= t('questions.client_monitor.enter_question_text') %>" autofocus></textarea>
     </div>
   <% end %>
  
   <div class="page-header">
-    <h1>Question</h1>
+    <h1><%= t('questions.name') %></h1>
   </div>
   <div id="questions-inner-cont">
     <%- @questions.each do |question| %>
