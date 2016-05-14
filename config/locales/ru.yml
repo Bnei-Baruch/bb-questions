@@ -287,6 +287,8 @@ ru:
   update: 'Сохранить'
   open: 'Открыть'
   list: 'Список'
+  send: 'Отослать'
+  cancel: 'Отмена'
   will_paginate:
     previous_label: 'Предыдущий'
     next_label: 'Следующий'
@@ -356,7 +358,7 @@ ru:
         password_confirmation: 'Подтвердить пароль'
         admin: 'Админ'
       question:
-        from: 'Откуда'
+        from: 'От'
         ip: 'IP'
         banned: 'запрещенный'
         selected: 'Выбранный'
@@ -371,6 +373,7 @@ ru:
 
 #START:Users
   users:
+    remember_me_on_this_computer: "Запомнить меня на этом компьютере"
     name: 'Пользователи'
     new:
       new: 'Новый Пользователь'
@@ -386,6 +389,15 @@ ru:
 
 #START:Questions
   questions:
+    monitor:
+      ban: "Запрет"
+      select: "Выбрать"
+      unapprove: "Отмена Одобр."
+      approve: "Одобрить"
+      selected: "Выбранные"
+      unselected: "Невыбранные"
+    moderator_monitor: "Монитор модератора"
+    questions_monitor: "Мониторинг вопросов"
     name: 'Вопросы'
     new:
       new: 'Новый Вопрос'
@@ -393,4 +405,6 @@ ru:
       list: 'Список Вопросов'
     edit:
       editing: 'Изменение Вопроса'
+    client_monitor:
+      enter_question_text: 'Введите текст вопроса здесь!'
 #END:Questions

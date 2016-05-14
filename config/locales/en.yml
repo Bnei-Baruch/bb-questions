@@ -241,6 +241,8 @@ en:
   update: 'Update'
   open: 'Open'
   list: 'List'
+  send: 'Send'
+  cancel: 'Cancel'
   will_paginate:
     previous_label: 'Previous'
     next_label: 'Next'
@@ -326,6 +328,7 @@ en:
 
 #START:Users
   users:
+    remember_me_on_this_computer: "Remember me on this computer"
     name: 'Users'
     new:
       new: 'New User'
@@ -340,6 +343,15 @@ en:
 
 #START:Questions
   questions:
+    monitor:
+      ban: "Ban"
+      select: "Selected"
+      unapprove: "UnApprove"
+      approve: "Approve"
+      selected: "Selected"
+      unselected: "Unselected"
+    moderator_monitor: "Moderator's monitor"
+    questions_monitor: "Questions monitor"
     name: 'Questions'
     new:
       new: 'New Question'
@@ -347,4 +359,6 @@ en:
       list: 'Questions list'
     edit:
       editing: 'Editing Question'
+    client_monitor:
+      enter_question_text: 'Enter Question text here!'
 #END:Questions

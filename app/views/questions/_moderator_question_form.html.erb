@@ -7,8 +7,14 @@
         <%= field_set_tag do %>	
         	
         	<div class="row">
-        		<div class="col-md-12">
-        		  <span><%= "#{question.name} From: #{question.from}. IP: #{question.ip}" %></span>
+        		<div class="col-md-12 <%= I18n.locale %>">
+        		  <span class="question-caption"><%= question.name %></span>
+              <% if !question.from.blank? %>
+                <span class="question-caption"><%= t('activerecord.attributes.question.from') %>:</span>
+                <span class="question-caption"><%= question.from %></span>
+		          <% end %>
+              <span class="question-caption"> IP:</span>
+              <span class="question-caption"><%= question.ip %></span>
         		</div>
         	</div>
         
@@ -20,9 +26,9 @@
     				    <%= f.check_box :approved , class: "hidden approve" %>
     				    
             		  	<% if question.approved?%>
-    			      	    <button class="btn btn-info btn-xs approve approved" type="submit">UnApprove</button>
+    			      	    <button class="btn btn-info btn-xs approve approved" type="submit"><%= t('questions.monitor.unapprove') %></button>
                         <% else %>
-    			      	    <button class="btn btn-primary btn-xs approve" type="submit">Approve</button>
+    			      	    <button class="btn btn-primary btn-xs approve" type="submit"><%= t('questions.monitor.approve') %></button>
             		  	<% end %>
         		  	
     			  	<% end %>
@@ -32,16 +38,16 @@
         			<%= link_to t(:delete), question_path(@question), remote: true, method: :delete, class: "btn btn-danger btn-xs", 
         			        data: { confirm: t(:confirm) } %>
 			        
-    			  	<button data-question-id="<%= @question.id %>" type="button" class="btn btn-info btn-xs edit">Edit</button>
-    			  	<button class="hide btn btn-primary btn-xs save" type="submit">Save</button>
-    			  	<button class="hide btn btn-primary btn-xs cancel" type="button">Cancel</button>
+    			  	<button data-question-id="<%= @question.id %>" type="button" class="btn btn-info btn-xs edit"><%= t('edit') %></button>
+    			  	<button class="hide btn btn-primary btn-xs save" type="submit"><%= t('save') %></button>
+    			  	<button class="hide btn btn-primary btn-xs cancel" type="button"><%= t('cancel') %></button>
         		</div>
         		<div align="right" class="col-md-3">
     			  	<div class="inline-block flash-info-cont flash-info"></div>
         		</div>
         		<div align="right" class="col-md-3">
-    			  	<button class="btn btn-danger btn-xs" type="button">Ban</button>
-    			  	<button class="btn btn-primary btn-xs" type="button">Select</button>
+    			  	<button class="btn btn-danger btn-xs" type="button"><%= t('questions.monitor.ban') %></button>
+    			  	<button class="btn btn-primary btn-xs" type="button"><%= t('questions.monitor.select') %></button>
         		</div>
         	</div>
         	

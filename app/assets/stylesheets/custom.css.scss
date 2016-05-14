@@ -44,6 +44,11 @@ html {
   .dropdown-menu > li > a{
         text-align: right;
   }
+  
+  .question-caption{
+    float: right;
+    padding-right: 1em;
+  }
 }
 
 
@@ -52,9 +57,10 @@ html {
 }
 
 .languages{
-  width: 8em;
-  height: 2.2em;
-  margin-top: 0.5em;
+  width: 8em !important;
+  height: 1.8em !important;
+  margin-top: 0.9em !important;
+  padding: 2px 2px !important;
 }
 
 body {

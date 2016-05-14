@@ -6,6 +6,15 @@
       
       <nav>
         <ul class="nav navbar-nav navbar-right pull-right">
+          <li>
+          	<%= form_tag loc_lang_path, :method => :post, class: 'locale' do %>
+          	           	
+	          	<%= select_tag 'set_locale',  options_for_select(LANGUAGES, I18n.locale.to_s), 
+	          	onchange: 'this.form.submit()', class: 'languages form-control' %>
+	          	<%= submit_tag 'submit' %>
+	          	<%= javascript_tag "$('.locale input').hide()" %>
+          	<% end %>
+          </li>
           <li><%= link_to t('home_page'), root_path %></li>
 	        <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -17,11 +26,11 @@
             </ul>
   	      </li>
 	      
-          <li><%= link_to t('questions.index.list'), questions_path %></li>
-          <li><%= link_to 'Questions monitor', client_monitor_questions_path %></li>
+          <li><%= link_to t('questions.questions_monitor'), client_monitor_questions_path %></li>
           <% if logged_in? %>
+            <li><%= link_to t('questions.index.list'), questions_path %></li>
             <% if admin_user? %>
-              <li><%= link_to 'Moderator monitor', moderator_monitor_questions_path %></li>
+              <li><%= link_to  t('questions.moderator_monitor'), moderator_monitor_questions_path %></li>
             <% end %>
           	<li><%= link_to t('users.index.list'), users_path %></li>
           	<li><%= link_to t('profile'), edit_user_path(current_user) %></li>

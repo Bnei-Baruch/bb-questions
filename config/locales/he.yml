@@ -232,6 +232,8 @@ he:
   update: 'עדכון'
   open: 'לפתוח'
   list: 'רשימה'
+  send: 'שלח'
+  cancel: 'בטל'
   will_paginate:
     previous_label: 'קודם'
     next_label: 'הבא'
@@ -302,7 +304,7 @@ he:
         password_confirmation: 'אימות סיסמא'
         admin: 'Admin'
       question:
-        from: 'מהיכן'
+        from: 'מאת'
         ip: 'IP'
         banned: 'אסור'
         selected: 'נבחר'
@@ -317,6 +319,7 @@ he:
 
 #START:Users
   users:
+    remember_me_on_this_computer: "זכור אותי במחשב זה"
     name: 'משתמשים'
     new:
       new: 'משתמש חדש'
@@ -332,6 +335,15 @@ he:
 
 #START:Questions
   questions:
+    monitor:
+      ban: "לאסור"
+      select: "בחר"
+      unapprove: "ביטול אישור"
+      approve: "לאשר"
+      selected: "אשר נבחרו"
+      unselected: "אשר לא נבחרו"
+    moderator_monitor: "צג של אופרטור"
+    questions_monitor: "מעקב שאלות"
     name: 'שאלות'
     new:
       new: 'שאלה חדשה'
@@ -339,4 +351,7 @@ he:
       list: 'רשימת שאלות'
     edit:
       editing: 'עריכת שאלה'
+    client_monitor:
+      enter_question_text: 'הזן שאילתה כאן'
+      
 #END:Questions
