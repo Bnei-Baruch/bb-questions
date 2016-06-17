@@ -1,6 +1,10 @@
 require 'bing_translator'
 
 class Question < ActiveRecord::Base
+  @@client_id = 'bb-questions'
+  @@client_secret = '3uGhHaJxcvy4iTL2dkvqbzG4n72XJwYH+uQO1L9nlFU='
+  @@translator = BingTranslator.new(@@client_id, @@client_secret)
+
   before_validation(on: :create) do
     translate
   end
@@ -43,11 +47,12 @@ class Question < ActiveRecord::Base
 
 
   def translate
-    #self.translation = question if attribute_present?("question")
-    client_id = 'bb-questions'
-    client_secret = '3uGhHaJxcvy4iTL2dkvqbzG4n72XJwYH+uQO1L9nlFU='
-    translator = BingTranslator.new(client_id, client_secret)
-    self.translation = translator.translate(question, :to => 'he')
+    question_language = @@translator.detect(question)
+    tgt_language = ApplicationSetup.target_trans_lang
+    print "================= TARGET LANG: #{tgt_language}"
+    #if (question_language.downcase != ApplicationSetup.target_trans_lang.downcase)
+      self.translation = @@translator.translate(question, :to => 'he')
+    #end
   end
 
 end
