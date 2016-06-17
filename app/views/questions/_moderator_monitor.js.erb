@@ -143,7 +143,10 @@
         }
        
         ModeratorLibrary.initUI = function (parentCont) {
-            if (!parentCont) parentCont = $('#moderator-monitor');
+            if (!parentCont){ 
+                parentCont = $('#moderator-monitor');
+                $('#btn-delete-all').click(ModeratorLibrary.onDeleteAll);
+            }
             parentCont.find("form.edit_question.approve").submit(ModeratorLibrary.onSubmitApproved);
             parentCont.find("form.form-translation").submit(ModeratorLibrary.onSubmitTranslation);
             parentCont.find("button.edit").click(ModeratorLibrary.onBtnEdit);
@@ -162,6 +165,25 @@
             
             return ws;
         }
+        
+        
+        ModeratorLibrary.onDeleteAll = function (data) {
+            $("#unselected-questions-cont").html('');
+            $("#selected-questions-cont").html('');
+            
+            $.ajax({
+                type: 'POST',
+                url: "update_questions_session_date",
+                success: function (json) {
+                    //alert(1);
+                    //flashInfoNotification(flashInfo, "Deleted");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    writeError(null, jqXHR, textStatus, errorThrown);
+                }
+            })
+            return false;
+        };
        
        
        
