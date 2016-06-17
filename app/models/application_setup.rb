@@ -50,6 +50,17 @@ class ApplicationSetup < ActiveRecord::Base
     @@target_language
   end
   
+  def self.questions_session_date
+    keyName = "questions_session_date"
+    app_setup_cach[keyName] ||= 
+        get_app_setup_value(keyName, I18n.locale) || I18n.t('house_name')
+  end
+  
+  def self.update_questions_session_date
+    questionsSessionDate = ApplicationSetup.find_by(code_id: 'questions_session_date')
+    questionsSessionDate.update_attribute('str_value', DateTime.now.to_s)
+  end
+  
   private
   def reset_cache_references
     @@app_setup_cach = nil 

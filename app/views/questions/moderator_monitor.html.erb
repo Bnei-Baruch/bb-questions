@@ -2,8 +2,21 @@
 
 <div id="moderator-monitor" class="moderator-monitor row">
   
-  <h4><%= t('questions.monitor.unselected') %></h4>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button id="btn-delete-all" type="button" class="btn btn-xs btn-danger">Delete ALL</button>
+    </div>
+  </div>
+  
   <div id="unselected-questions-cont" class="questions-cont unselected col-md-6">
+    <div class="row">
+      <div class="col-md-4"><span><%= t('questions.monitor.unselected') %></span></div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
+    </div>
+    
     <%- @questions.each do |question| %>
     	<%= render partial: "moderator_question_form", 
   		  locals: {question: question} %>
@@ -11,7 +24,7 @@
   </div>
   
   
-  <h4><%= t('questions.monitor.selected') %></h4>
+  
   <div id="selected-questions-cont" class="questions-cont selected col-md-6">
     <%- @selected_questions.each do |question| %>
     

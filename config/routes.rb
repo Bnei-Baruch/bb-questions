@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       collection do
         get 'moderator_monitor'
         get 'client_monitor'
+        post 'update_questions_session_date'
       end
       
       member do
