@@ -16,6 +16,11 @@ class Question < ActiveRecord::Base
   scope :selected,  -> { where(selected: [true]) }
   scope :unselected,  -> { where(selected: [false, nil]) }
   scope :approved,  -> { where(approved: [true]) }
+  scope :last_session,  -> { where("created_at > ?", get_last_session_date()) }
+  
+  def self.get_last_session_date
+    DateTime.parse(ApplicationSetup.questions_session_date) rescue  DateTime.now
+  end
 
 
   def get_trans_hide_show_class

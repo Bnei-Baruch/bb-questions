@@ -1,10 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :moderator_question]
-  before_action :log_in_user, except: [:client_monitor, :create]
+  before_action :log_in_user, except: [:moderator_monitor, :update_questions_session_date]
 
+  def update_questions_session_date
+    ApplicationSetup.update_questions_session_date
+    render :nothing => true, :status => :ok
+  end
+  
   def moderator_monitor
-    @questions = Question.unselected.all.order(id: :desc)
-    @selected_questions = Question.selected.all.order(id: :desc)
+    @questions = Question.last_session.unselected.all.order(id: :desc)
+    @selected_questions = Question.last_session.selected.all.order(id: :desc)
   end
   
   def moderator_question
@@ -17,7 +22,7 @@ class QuestionsController < ApplicationController
   def client_monitor
     @new_question = Question.new
     @new_question.ip = request.remote_ip
-    @questions = Question.approved.all.order(id: :desc)
+    @questions = Question.last_session.approved.all.order(id: :desc)
   end
 
   # GET /questions

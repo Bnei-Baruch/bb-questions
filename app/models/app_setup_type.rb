@@ -1,5 +1,5 @@
 class AppSetupType < ActiveRecord::Base
-    TYPES = [STRING = 1, INTEGER = 2, FLOAT = 3, ATTACHMENT = 4]
+    TYPES = [STRING = 1, INTEGER = 2, FLOAT = 3, ATTACHMENT = 4, DATETIME = 5]
     
     after_save :reset_cache_references
     
