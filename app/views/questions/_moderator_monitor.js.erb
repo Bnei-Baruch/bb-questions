@@ -152,6 +152,7 @@
             parentCont.find("button.edit").click(ModeratorLibrary.onBtnEdit);
             parentCont.find("button.cancel").click(ModeratorLibrary.questionBtnCancel);
             parentCont.find("button.save").click(ModeratorLibrary.onBtnSave);
+            parentCont.find("button.select").click(ModeratorLibrary.onBtnSelect);
         }
         
         ModeratorLibrary.createWebsocket = function (parentCont) {
@@ -184,6 +185,41 @@
             })
             return false;
         };
+         
+        ModeratorLibrary.onBtnSelect = function () {
+            var trgForm = $(event.target).closest(".edit_question_select");
+            var trgParentCont = trgForm.closest(".form-cont");
+            var trgElm = trgForm.find("input.selected");
+            var trgBtn = trgForm.find("button.select");
+            var flashInfo = trgParentCont.find(".flash-info");
+            
+            trgElm.click();
+            flashInfoAimation(flashInfo, "Submiting");
+            event.preventDefault();
+            
+            $.ajax({
+                type: 'POST',
+                url: trgForm.attr('action'),
+                data: trgForm.serialize(),
+                dataType: 'json',
+                success: function (json) {
+                    if (json.selected) {
+                        trgBtn.addClass("btn-info selected").removeClass("btn-primary").text("UnSelect");
+                        flashInfoNotification(flashInfo, "Selected");
+                        $("#selected-questions-cont").prepend(trgParentCont);
+                    }
+                    else {
+                        trgBtn.addClass("btn-primary").removeClass("btn-info selected").text("Select");
+                        flashInfoNotification(flashInfo, "Un Selected");
+                        $("#unselected-questions-cont").prepend(trgParentCont);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    writeError(flashInfo, jqXHR, textStatus, errorThrown);
+                }
+            })
+            return false;
+        }
        
        
        
