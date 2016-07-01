@@ -40,6 +40,10 @@ def create_languages
   unless Language.exists?(id: 3) 
     Language.create id: 3, code: 'ru', name: 'Русский'
   end
+  
+  unless Language.exists?(id: 4) 
+    Language.create id: 4, code: 'es', name: 'Español'
+  end
 end
 
 def create_application_setups
@@ -79,6 +83,87 @@ def create_application_setups
       str_value: DateTime.now.to_s 
   end 
   
+  #Morning Lesson message - morning_lesson_message (English, Spanish, Hebrew, Russian) 
+  # Selected questions related to the theme of the lesson will be asked during broadcast.
+  unless ApplicationSetup.exists?(code_id: 'morning_lesson_message', language_id: Language::ENGLISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::ENGLISH,  
+      code_id: 'morning_lesson_message', description: 'Morning Lesson message', 
+      str_value: 'Selected questions related to the theme of the lesson will be asked during broadcast.' 
+  end 
+  
+  
+  # Las preguntas relacionadas con los temas de estudio, serán seleccionadas y se interrogarán durante la transmisión en vivo.
+  unless ApplicationSetup.exists?(code_id: 'morning_lesson_message', language_id: Language::SPANISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::SPANISH,  
+      code_id: 'morning_lesson_message', description: 'Morning Lesson message', 
+      str_value: 'Las preguntas relacionadas con los temas de estudio, serán seleccionadas y se interrogarán durante la transmisión en vivo.' 
+  end 
+  
+  #שאלות נבחרות הקשורות לחומר הנלמד תישאלנה בשידור חי
+  unless ApplicationSetup.exists?(code_id: 'morning_lesson_message', language_id: Language::HEBREW)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::HEBREW,  
+      code_id: 'morning_lesson_message', description: 'Morning Lesson message', 
+      str_value: 'שאלות נבחרות הקשורות לחומר הנלמד תישאלנה בשידור חי' 
+  end 
+  
+  #Самые интересные вопросы по теме урока будут заданы в прямом эфире.
+  # Las preguntas relacionadas con los temas de estudio, serán seleccionadas y se interrogarán durante la transmisión en vivo.
+  unless ApplicationSetup.exists?(code_id: 'morning_lesson_message', language_id: Language::RUSSIAN)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::RUSSIAN,  
+      code_id: 'morning_lesson_message', description: 'Morning Lesson message', 
+      str_value: 'Самые интересные вопросы по теме урока будут заданы в прямом эфире.' 
+  end 
+  
+  
+  #Technical Problems message -technical_problems_message (English, Spanish, Hebrew, Russian)
+  unless ApplicationSetup.exists?(code_id: 'technical_problems_message', language_id: Language::ENGLISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::ENGLISH,  
+      code_id: 'technical_problems_message', description: 'Technical Problems message', 
+      str_value: 'If you are experiencing problems with slow connections during broadcast, please email SUPPORT@KAB.TV with the details of the city and country from which you are watching.' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'technical_problems_message', language_id: Language::SPANISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::SPANISH,  
+      code_id: 'technical_problems_message', description: 'Technical Problems message', 
+      str_value: 'Se están experimentando problemas de conexión lenta, por favor, envíen un correo a SUPPORT@KAB.TV con la información de ciudad y país de donde están viendo el programa.' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'technical_problems_message', language_id: Language::HEBREW)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::HEBREW,  
+      code_id: 'technical_problems_message', description: 'Technical Problems message', 
+      str_value: 'במידה ונתקלתם בבעיה של חיבור איטי וכדומה במהלך הצפיה, אנא שלחו מייל בצירוף המדינה ועיר שממנה אתם מתחברים לכתובת – SUPPORT@KAB.TV' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'technical_problems_message', language_id: Language::RUSSIAN)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::RUSSIAN,  
+      code_id: 'technical_problems_message', description: 'Technical Problems message', 
+      str_value: 'Если у вас есть проблемы с медленным подключением во время трансляции, обратитесь по адресу SUPPORT@KAB.TV с указанием города и страны из которого вы смотрите.' 
+  end 
+  
+  #Yeshivat Haverim message -yeshivat_haverim_message (English, Spanish, Hebrew, Russian)
+  unless ApplicationSetup.exists?(code_id: 'yeshivat_haverim_message', language_id: Language::ENGLISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::ENGLISH,  
+      code_id: 'yeshivat_haverim_message', description: 'Technical Problems message', 
+      str_value: 'Hi Dear Friends, everyone are invited to share their impression from the topic of the Yeshivat Haverim' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'yeshivat_haverim_message', language_id: Language::SPANISH)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::SPANISH,  
+      code_id: 'yeshivat_haverim_message', description: 'Technical Problems message', 
+      str_value: 'Hola queridos amigos, todos estan invitados a compartir sus impresiones de la Yeshivat Haverim.' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'yeshivat_haverim_message', language_id: Language::HEBREW)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::HEBREW,  
+      code_id: 'yeshivat_haverim_message', description: 'Technical Problems message', 
+      str_value: 'שלום חברים יקרים, כולם מוזמנים לשלוח דברי התפעלות בנושא ישיבת החברים' 
+  end 
+  
+  unless ApplicationSetup.exists?(code_id: 'yeshivat_haverim_message', language_id: Language::RUSSIAN)
+    ApplicationSetup.create app_setup_type_id: AppSetupType::STRING, language_id: Language::RUSSIAN,  
+      code_id: 'yeshivat_haverim_message', description: 'Technical Problems message', 
+      str_value: 'Здравствуйте, дорогие друзья. Мы приглашаем всех присылать воодушевляющие отрывки по теме собрания товарищей.' 
+  end 
 end
 
 def make_users  

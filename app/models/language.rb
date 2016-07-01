@@ -1,5 +1,5 @@
 class Language < ActiveRecord::Base
-  TYPES = [ENGLISH = 1, HEBREW = 2, RUSSIAN = 3]
+  TYPES = [ENGLISH = 1, HEBREW = 2, RUSSIAN = 3, SPANISH = 4]
   after_save :reset_cache_references
   
   validates :name, presence: true, length: { maximum: 60 },

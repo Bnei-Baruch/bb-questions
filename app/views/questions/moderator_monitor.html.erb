@@ -3,7 +3,14 @@
 <div id="moderator-monitor" class="moderator-monitor row">
   
   <div class="row">
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <select class="form-control" id="message-type">
+        <option value="0">Select Message to Send</option>
+        <option value="morning_lesson">Morning Lesson</option>
+        <option value="technical_problems">Technical Problems</option>
+        <option value="yeshivat_haverim">Yeshivat Haverim</option>
+      </select>
+    </div>
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <button id="btn-delete-all" type="button" class="btn btn-xs btn-danger">Delete ALL</button>
@@ -32,6 +39,17 @@
   		  locals: {question: question} %>
   		  
     <%- end %>
+  </div>
+</div>
+
+<div id="morning-lesson-cont">
+  <div class="row">
+    <div class="col-md-2"><span>English</span></div>
+    <div class="col-md-10">
+      <textarea class="form-control" rows="3" id="translation-9" name="question[translation]">
+        Selected questions related to the theme of the lesson will be asked during broadcast.
+      </textarea>
+    </div>
   </div>
 </div>
 

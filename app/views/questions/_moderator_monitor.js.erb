@@ -153,6 +153,7 @@
             parentCont.find("button.cancel").click(ModeratorLibrary.questionBtnCancel);
             parentCont.find("button.save").click(ModeratorLibrary.onBtnSave);
             parentCont.find("button.select").click(ModeratorLibrary.onBtnSelect);
+            ModeratorLibrary.initMessageDialog();
         }
         
         ModeratorLibrary.createWebsocket = function (parentCont) {
@@ -221,7 +222,34 @@
             return false;
         }
        
-       
+               
+        ModeratorLibrary.initMessageDialog = function () {
+            var morningLessonCont = $( "#morning-lesson-cont" ).dialog({
+                width: 500,
+                autoOpen: false,
+                resizable: false,
+                height:340,
+                modal: true,
+                buttons: {
+                    "Send": function() {
+                      $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                      $( this ).dialog( "close" );
+                    }
+                }
+            })
+            
+            $( "#message-type" ).change(function() {
+                if ($(this).val() != 0){
+                    $("#morning-lesson-cont").dialog("open");
+                }
+            });
+        }
+        
+        
+        ModeratorLibrary.messageTypeOnChange = function () {
+        }
        
     }(ModeratorLibrary = ModeratorLibrary || {}));
     
