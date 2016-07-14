@@ -4,5 +4,4 @@
         <%= question.from.blank?? "": "#{ t('activerecord.attributes.question.from')} #{question.from}" %>
     </div>
     <div dir="auto" class="panel-body"><%= question.question %></div>
-    <div dir="auto" class="panel-body <%= question.get_trans_hide_show_class() %>"><%= question.translation %></div>
 </div>

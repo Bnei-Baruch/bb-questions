@@ -224,31 +224,61 @@
        
                
         ModeratorLibrary.initMessageDialog = function () {
-            var morningLessonCont = $( "#morning-lesson-cont" ).dialog({
-                width: 500,
+            var morningLessonCont = $( "#moderator-messages-cont" ).dialog({
+                width: 700,
                 autoOpen: false,
                 resizable: false,
-                height:340,
+                height:500,
                 modal: true,
                 buttons: {
                     "Send": function() {
-                      $( this ).dialog( "close" );
+                        ModeratorLibrary.sendModeratorMessages(this);
                 },
                 Cancel: function() {
-                      $( this ).dialog( "close" );
+                        ModeratorLibrary.closeMessageDialog(this);
                     }
                 }
             })
             
             $( "#message-type" ).change(function() {
-                if ($(this).val() != 0){
-                    $("#morning-lesson-cont").dialog("open");
-                }
+                ModeratorLibrary.messageTypeOnChange(this);
             });
         }
         
         
-        ModeratorLibrary.messageTypeOnChange = function () {
+        ModeratorLibrary.closeMessageDialog = function (srcElm) {
+            ModeratorLibrary.resetMessageType();
+            $(srcElm).dialog( "close" );
+        }
+        
+        
+        ModeratorLibrary.resetMessageType = function () {
+            $("#message-type").val("0")
+        }
+        
+        ModeratorLibrary.messageTypeOnChange = function (srcElm) {
+            if ($(srcElm).val() != 0){
+                $("#moderator-messages-cont").dialog("open");
+            }
+        }
+        
+        ModeratorLibrary.sendModeratorMessages = function ( srcElm ) {
+            $( "#moderator-messages-cont .moderator-message" ).each(function( index, element ) {
+                $.ajax({
+                    type: 'POST',
+                    url: "/he/questions",
+                    data: {"question": {"approved": "true", "name":"Moderator", "question": $(element).val()}},
+                    dataType: 'json',
+                    success: function (json) {
+                        //alert(10);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //alert(111);
+                    }
+                })
+            });
+            
+            ModeratorLibrary.closeMessageDialog( srcElm );
         }
        
     }(ModeratorLibrary = ModeratorLibrary || {}));

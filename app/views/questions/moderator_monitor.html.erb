@@ -42,15 +42,43 @@
   </div>
 </div>
 
-<div id="morning-lesson-cont">
+<div id="moderator-messages-cont">
   <div class="row">
     <div class="col-md-2"><span>English</span></div>
     <div class="col-md-10">
-      <textarea class="form-control" rows="3" id="translation-9" name="question[translation]">
+      <textarea class="form-control moderator-message" rows="3">
         Selected questions related to the theme of the lesson will be asked during broadcast.
       </textarea>
     </div>
   </div>
+  
+  <div class="row">
+    <div class="col-md-2"><span>Spanish</span></div>
+    <div class="col-md-10">
+      <textarea class="form-control moderator-message" rows="3">
+        Las preguntas relacionadas con los temas de estudio, serán seleccionadas y se interrogarán durante la transmisión en vivo.
+      </textarea>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"><span>Hebrew</span></div>
+    <div class="col-md-10">
+      <textarea class="form-control moderator-message">
+        שאלות נבחרות הקשורות לחומר הנלמד תישאלנה בשידור חי
+      </textarea>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"><span>Russian</span></div>
+    <div class="col-md-10">
+      <textarea class="form-control moderator-message" rows="3">
+        Самые интересные вопросы по теме урока будут заданы в прямом эфире.
+      </textarea>
+    </div>
+  </div>
+  
 </div>
 
 <%= render(:partial => 'moderator_monitor.js', :formats => [:js] ) %>
