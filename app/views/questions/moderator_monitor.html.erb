@@ -6,9 +6,9 @@
     <div class="col-md-4">
       <select class="form-control" id="message-type">
         <option value="0">Select Message to Send</option>
-        <option value="morning_lesson">Morning Lesson</option>
-        <option value="technical_problems">Technical Problems</option>
-        <option value="yeshivat_haverim">Yeshivat Haverim</option>
+        <option value="morning_lesson_message">Morning Lesson</option>
+        <option value="technical_problems_message">Technical Problems</option>
+        <option value="yeshivat_haverim_message">Yeshivat Haverim</option>
       </select>
     </div>
     <div class="col-md-4"></div>
@@ -18,11 +18,11 @@
   </div>
   
   <div id="unselected-questions-cont" class="questions-cont unselected col-md-6">
-    <div class="row">
-      <div class="col-md-4"><span><%= t('questions.monitor.unselected') %></span></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-    </div>
+    <!--<div class="row">-->
+    <!--  <div class="col-md-4"><span><%= t('questions.monitor.unselected') %></span></div>-->
+    <!--  <div class="col-md-4"></div>-->
+    <!--  <div class="col-md-4"></div>-->
+    <!--</div>-->
     
     <%- @questions.each do |question| %>
     	<%= render partial: "moderator_question_form", 
@@ -42,44 +42,7 @@
   </div>
 </div>
 
-<div id="moderator-messages-cont">
-  <div class="row">
-    <div class="col-md-2"><span>English</span></div>
-    <div class="col-md-10">
-      <textarea class="form-control moderator-message" rows="3">
-        Selected questions related to the theme of the lesson will be asked during broadcast.
-      </textarea>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-2"><span>Spanish</span></div>
-    <div class="col-md-10">
-      <textarea class="form-control moderator-message" rows="3">
-        Las preguntas relacionadas con los temas de estudio, serán seleccionadas y se interrogarán durante la transmisión en vivo.
-      </textarea>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-2"><span>Hebrew</span></div>
-    <div class="col-md-10">
-      <textarea class="form-control moderator-message">
-        שאלות נבחרות הקשורות לחומר הנלמד תישאלנה בשידור חי
-      </textarea>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-2"><span>Russian</span></div>
-    <div class="col-md-10">
-      <textarea class="form-control moderator-message" rows="3">
-        Самые интересные вопросы по теме урока будут заданы в прямом эфире.
-      </textarea>
-    </div>
-  </div>
-  
-</div>
+<div class="moderator-messages-cont" id="moderator-messages-cont"></div>
 
 <%= render(:partial => 'moderator_monitor.js', :formats => [:js] ) %>
 

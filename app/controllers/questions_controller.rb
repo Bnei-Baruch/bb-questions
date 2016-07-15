@@ -1,7 +1,16 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :moderator_question]
   before_action :log_in_user, except: [:client_monitor, :update_questions_session_date]
-
+ 
+  def moderator_messages
+    respond_to do |format|
+      codeId = params[:id]
+      @messages = ApplicationSetup.where(code_id: codeId)
+      format.html { render partial: "moderator_messages_form", 
+  		  locals: {code: codeId, messages: @messages}  }
+    end
+  end
+  
   def update_questions_session_date
     ApplicationSetup.update_questions_session_date
     render :nothing => true, :status => :ok

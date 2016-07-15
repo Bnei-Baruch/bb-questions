@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       
       member do
         get 'moderator_question'
+        get 'moderator_messages'
       end
     end
     

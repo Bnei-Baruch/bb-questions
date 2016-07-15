@@ -176,10 +176,6 @@
             $.ajax({
                 type: 'POST',
                 url: "update_questions_session_date",
-                success: function (json) {
-                    //alert(1);
-                    //flashInfoNotification(flashInfo, "Deleted");
-                },
                 error: function (jqXHR, textStatus, errorThrown) {
                     writeError(null, jqXHR, textStatus, errorThrown);
                 }
@@ -230,14 +226,23 @@
                 resizable: false,
                 height:500,
                 modal: true,
-                buttons: {
-                    "Send": function() {
+                buttons: [{
+                    text: "<%= t('send') %>",
+                    "id": "btnOk",
+                    click: function () {
                         ModeratorLibrary.sendModeratorMessages(this);
-                },
-                Cancel: function() {
+                    },
+            
+                }, {
+                    text:  "<%= t('cancel') %>",
+                    click: function () {
                         ModeratorLibrary.closeMessageDialog(this);
-                    }
+                    },
+                }],
+                close: function () {
+                    ModeratorLibrary.resetMessageType();
                 }
+                
             })
             
             $( "#message-type" ).change(function() {
@@ -247,7 +252,6 @@
         
         
         ModeratorLibrary.closeMessageDialog = function (srcElm) {
-            ModeratorLibrary.resetMessageType();
             $(srcElm).dialog( "close" );
         }
         
@@ -257,25 +261,34 @@
         }
         
         ModeratorLibrary.messageTypeOnChange = function (srcElm) {
-            if ($(srcElm).val() != 0){
+            var value = $(srcElm).val();
+            
+            if (value != 0){
+                $.ajax({
+                    url: "/questions/" + value + "/moderator_messages"
+                }).done(function(response) {
+                    var htmlElement = $.parseHTML(response);
+                    $("#moderator-messages-cont").html(htmlElement);
+                });
+                
                 $("#moderator-messages-cont").dialog("open");
             }
         }
         
         ModeratorLibrary.sendModeratorMessages = function ( srcElm ) {
             $( "#moderator-messages-cont .moderator-message" ).each(function( index, element ) {
-                $.ajax({
-                    type: 'POST',
-                    url: "/he/questions",
-                    data: {"question": {"approved": "true", "name":"Moderator", "question": $(element).val()}},
-                    dataType: 'json',
-                    success: function (json) {
-                        //alert(10);
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        //alert(111);
-                    }
-                })
+                var messageText = $(element).val();
+                if (messageText){
+                    $.ajax({
+                        type: 'POST',
+                        url: "/questions",
+                        data: {"question": {"approved": "true", "name":"Moderator", "question": $(element).val()}},
+                        dataType: 'json',
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            writeError(null, jqXHR, textStatus, errorThrown);
+                        }
+                    })
+                }
             });
             
             ModeratorLibrary.closeMessageDialog( srcElm );

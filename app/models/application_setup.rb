@@ -60,6 +60,10 @@ class ApplicationSetup < ActiveRecord::Base
     questionsSessionDate = ApplicationSetup.find_by(code_id: 'questions_session_date')
     questionsSessionDate.update_attribute('str_value', DateTime.now.to_s)
   end
+   
+  def language_name 
+    Language.language_name_array[language_id] unless language_id.nil?
+  end
   
   private
   def reset_cache_references

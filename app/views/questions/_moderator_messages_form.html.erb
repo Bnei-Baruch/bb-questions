@@ -1,0 +1,12 @@
+  
+<%- @messages.each do |message| %>
+  <div class="row">
+    <div class="col-md-2"><span> <%= "#{message.language_name()} " %></span></div>
+    <div dir="auto" class="col-md-10">
+      <textarea dir="auto" class="form-control moderator-message" rows="3">
+        <%= "#{message.str_value.squish} " %>
+      </textarea>
+    </div>
+  </div>
+<%- end %>
+  

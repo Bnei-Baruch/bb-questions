@@ -780,3 +780,15 @@ button.approved{
 .ltr{
   direction: ltr;
 }
+
+#moderator-messages-cont{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.he{
+  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+      float: left;
+  }
+}
+
