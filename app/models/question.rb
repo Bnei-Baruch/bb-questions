@@ -21,7 +21,7 @@ class Question < ActiveRecord::Base
   scope :unselected,  -> { where(selected: [false, nil]) }
   scope :approved,  -> { where(approved: [true]) }
   scope :last_session,  -> { where("created_at > ?", get_last_session_date()) }
-  
+
   def self.get_last_session_date
     DateTime.parse(ApplicationSetup.questions_session_date) rescue  DateTime.now
   end
@@ -52,12 +52,13 @@ class Question < ActiveRecord::Base
 
 
   def translate
-    question_language = @@translator.detect(question)
-    tgt_language = ApplicationSetup.target_trans_lang
-    print "================= TARGET LANG: #{tgt_language}"
-    #if (question_language.downcase != ApplicationSetup.target_trans_lang.downcase)
-      self.translation = @@translator.translate(question, :to => 'he')
-    #end
+    question_language = @@translator.detect(question).to_s
+    tgt_language = ApplicationSetup.target_trans_lang.code
+    if (0 != question_language.casecmp(tgt_language.to_s))
+      self.translation = @@translator.translate(question, :to => tgt_language)
+    else
+      self.translation = question
+    end
   end
 
 end
