@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :moderator_question]
-  before_action :log_in_user, except: [:moderator_monitor, :update_questions_session_date]
+  before_action :log_in_user, except: [:client_monitor, :update_questions_session_date]
 
   def update_questions_session_date
     ApplicationSetup.update_questions_session_date
