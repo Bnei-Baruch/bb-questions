@@ -1,6 +1,6 @@
 <% provide(:title, "Question Monitor") %>
 <div class="container client-monitor">
-  <%= form_for(@new_question, remote: true, html: {id: 'new_question-form', class:'new_question form-inline'}) do |f| %>
+  <%= form_for(@new_question, :format => :json, remote: true, html: {id: 'new_question-form', class:'new_question form-inline'}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
   
     <div class="form-group">
