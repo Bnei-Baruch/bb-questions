@@ -298,6 +298,11 @@ en:
   log_id: "Log in"
   please_sign_in: "Please sign in."
   id: 'ID'
+  select_message_to_send: "Select Message to Send"
+  morning_lesson_message: "Morning Lesson"
+  technical_problems_message: "Technical Problems"
+  yeshivat_haverim_message: "Meeting friends"
+  delete_all: "Delete ALL"
 
 
 #START:Active Records   
@@ -350,6 +355,7 @@ en:
       approve: "Approve"
       selected: "Selected"
       unselected: "Unselected"
+      unselect: "Unselect"
     moderator_monitor: "Moderator's monitor"
     questions_monitor: "Questions monitor"
     name: 'Questions'

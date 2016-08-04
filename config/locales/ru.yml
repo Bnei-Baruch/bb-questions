@@ -343,6 +343,11 @@ ru:
   log_id: "Войти"
   please_sign_in: "Пожалуйста, войти в систему."
   id: 'ID'
+  select_message_to_send: "Выберите сообщение для отправки"
+  morning_lesson_message: "Утренний урок"
+  technical_problems_message: "Технические проблемы"
+  yeshivat_haverim_message: "Собрание товарищей"
+  delete_all: "Удалить все"
   
   
  #START:Active Records   
@@ -396,6 +401,7 @@ ru:
       approve: "Одобрить"
       selected: "Выбранные"
       unselected: "Невыбранные"
+      unselect: "Отменить выбр"
     moderator_monitor: "Монитор модератора"
     questions_monitor: "Мониторинг вопросов"
     name: 'Вопросы'

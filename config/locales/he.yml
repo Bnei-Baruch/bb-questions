@@ -289,6 +289,11 @@ he:
   log_id: "כניסה"
   please_sign_in: נא התחבר."
   id: 'ID'
+  select_message_to_send: "בחר הודעה כדי לשלוח"
+  morning_lesson_message: "שיעור הבוקר"
+  technical_problems_message: "בעיות טכניות"
+  yeshivat_haverim_message: "ישיבת חברים"
+  delete_all: "מחק הכל"
   
   
  #START:Active Records 
@@ -342,6 +347,7 @@ he:
       approve: "לאשר"
       selected: "אשר נבחרו"
       unselected: "אשר לא נבחרו"
+      unselect: "בטל בחירה"
     moderator_monitor: "צג של אופרטור"
     questions_monitor: "מעקב שאלות"
     name: 'שאלות'

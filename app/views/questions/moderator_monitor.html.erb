@@ -4,41 +4,37 @@
   
   <div class="row">
     <div class="col-md-4">
-      <select class="form-control" id="message-type">
-        <option value="0">Select Message to Send</option>
-        <option value="morning_lesson_message">Morning Lesson</option>
-        <option value="technical_problems_message">Technical Problems</option>
-        <option value="yeshivat_haverim_message">Yeshivat Haverim</option>
+      <select class="form-control medium-long-select" id="message-type">
+        <option value="0"><%= t('select_message_to_send') %></option>
+        <option value="morning_lesson_message"><%= t('morning_lesson_message') %></option>
+        <option value="technical_problems_message"><%= t('technical_problems_message') %></option>
+        <option value="yeshivat_haverim_message"><%= t('yeshivat_haverim_message') %></option>
       </select>
     </div>
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <button id="btn-delete-all" type="button" class="btn btn-xs btn-danger">Delete ALL</button>
+      <button id="btn-delete-all" type="button" class="btn btn-xs btn-danger"><%= t('delete_all') %></button>
     </div>
   </div>
   
-  <div id="unselected-questions-cont" class="questions-cont unselected col-md-6">
-    <!--<div class="row">-->
-    <!--  <div class="col-md-4"><span><%= t('questions.monitor.unselected') %></span></div>-->
-    <!--  <div class="col-md-4"></div>-->
-    <!--  <div class="col-md-4"></div>-->
-    <!--</div>-->
-    
-    <%- @questions.each do |question| %>
-    	<%= render partial: "moderator_question_form", 
-  		  locals: {question: question} %>
-    <%- end %>
-  </div>
+  <div class="row">
+    <div id="unselected-questions-cont" class="questions-cont unselected col-md-6">
+      <%- @questions.each do |question| %>
+      	<%= render partial: "moderator_question_form", 
+    		  locals: {question: question} %>
+      <%- end %>
+    </div>
   
   
   
-  <div id="selected-questions-cont" class="questions-cont selected col-md-6">
-    <%- @selected_questions.each do |question| %>
-    
-    	<%= render partial: "moderator_question_form", 
-  		  locals: {question: question} %>
-  		  
-    <%- end %>
+    <div id="selected-questions-cont" class="questions-cont selected col-md-6">
+      <%- @selected_questions.each do |question| %>
+      
+      	<%= render partial: "moderator_question_form", 
+    		  locals: {question: question} %>
+    		  
+      <%- end %>
+    </div>
   </div>
 </div>
 
