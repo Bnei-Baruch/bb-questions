@@ -303,6 +303,8 @@ en:
   technical_problems_message: "Technical Problems"
   yeshivat_haverim_message: "Meeting friends"
   delete_all: "Delete ALL"
+  submitting: "Submitting"
+  saved: "Saved"
 
 
 #START:Active Records   
@@ -352,7 +354,9 @@ en:
       ban: "Ban"
       select: "Selected"
       unapprove: "UnApprove"
+      unapproved: "UnApproved"
       approve: "Approve"
+      approved: "Approved"
       selected: "Selected"
       unselected: "Unselected"
       unselect: "Unselect"

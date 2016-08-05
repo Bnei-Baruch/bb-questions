@@ -25,7 +25,7 @@
             var flashInfo = trgParentCont.find(".flash-info");
     
             trgElm.click();
-            flashInfoAimation(flashInfo, "Submiting");
+            flashInfoAimation(flashInfo, "<%= t('submitting') %>");
             event.preventDefault();
     
             $.ajax({
@@ -35,12 +35,12 @@
                 dataType: 'json',
                 success: function (json) {
                     if (json.approved) {
-                        trgBtn.addClass("btn-info approved").removeClass("btn-primary").text("UnApprove");
-                        flashInfoNotification(flashInfo, "Approved");
+                        trgBtn.addClass("btn-info approved").removeClass("btn-primary").text("<%= t('questions.monitor.unapprove') %>");
+                        flashInfoNotification(flashInfo, "<%= t('questions.monitor.approved') %>");
                     }
                     else {
-                        trgBtn.addClass("btn-primary").removeClass("btn-info approved").text("Approve");
-                        flashInfoNotification(flashInfo, "Un Approved");
+                        trgBtn.addClass("btn-primary").removeClass("btn-info approved").text("<%= t('questions.monitor.approve') %>");
+                        flashInfoNotification(flashInfo, "<%= t('questions.monitor.unapproved') %>");
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -90,8 +90,7 @@
             var trgParentCont = trgForm.closest(".form-cont");
             var flashInfo = trgParentCont.find(".flash-info");
     
-            //flashInfo.html("Submiting...").show();
-            flashInfoAimation(flashInfo, "Submiting");
+            flashInfoAimation(flashInfo, "<%= t('submitting') %>");
             event.preventDefault();
     
             $.ajax({
@@ -100,7 +99,7 @@
                 data: trgForm.serialize(),
                 dataType: 'json',
                 success: function (json) {
-                    flashInfoNotification(flashInfo, "Saved");
+                    flashInfoNotification(flashInfo, "<%= t('questions.monitor.saved') %>");
                     trgParentCont.find(".org-translation").text(trgParentCont.find(".question-translation").val()).removeClass("hide");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -191,7 +190,7 @@
             var flashInfo = trgParentCont.find(".flash-info");
             
             trgElm.click();
-            flashInfoAimation(flashInfo, "Submiting");
+            flashInfoAimation(flashInfo, "<%= t('submitting') %>");
             event.preventDefault();
             
             $.ajax({
@@ -201,13 +200,13 @@
                 dataType: 'json',
                 success: function (json) {
                     if (json.selected) {
-                        trgBtn.addClass("btn-info selected").removeClass("btn-primary").text("UnSelect");
-                        flashInfoNotification(flashInfo, "Selected");
+                        trgBtn.addClass("btn-info selected").removeClass("btn-primary").text("<%= t('questions.monitor.unselect') %>");
+                        flashInfoNotification(flashInfo, "<%= t('questions.monitor.selected') %>");
                         $("#selected-questions-cont").prepend(trgParentCont);
                     }
                     else {
-                        trgBtn.addClass("btn-primary").removeClass("btn-info selected").text("Select");
-                        flashInfoNotification(flashInfo, "Un Selected");
+                        trgBtn.addClass("btn-primary").removeClass("btn-info selected").text("<%= t('questions.monitor.select') %>");
+                        flashInfoNotification(flashInfo, "<%= t('questions.monitor.unselected') %>");
                         $("#unselected-questions-cont").prepend(trgParentCont);
                     }
                 },

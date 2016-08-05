@@ -294,6 +294,8 @@ he:
   technical_problems_message: "בעיות טכניות"
   yeshivat_haverim_message: "ישיבת חברים"
   delete_all: "מחק הכל"
+  submitting: "העברה"
+  saved: "נשמר"
   
   
  #START:Active Records 
@@ -344,7 +346,9 @@ he:
       ban: "לאסור"
       select: "בחר"
       unapprove: "ביטול אישור"
+      unapproved: "לא מאושר"
       approve: "לאשר"
+      approved: "אושר"
       selected: "אשר נבחרו"
       unselected: "אשר לא נבחרו"
       unselect: "בטל בחירה"

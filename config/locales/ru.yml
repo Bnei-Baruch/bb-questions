@@ -348,6 +348,8 @@ ru:
   technical_problems_message: "Технические проблемы"
   yeshivat_haverim_message: "Собрание товарищей"
   delete_all: "Удалить все"
+  submitting: "Передача"
+  saved: "Сохранено"
   
   
  #START:Active Records   
@@ -399,6 +401,8 @@ ru:
       select: "Выбрать"
       unapprove: "Отмена Одобр."
       approve: "Одобрить"
+      unapproved: "Неодобренный"
+      approved: "Одобрено"
       selected: "Выбранные"
       unselected: "Невыбранные"
       unselect: "Отменить выбр"
