@@ -99,7 +99,8 @@
                 data: trgForm.serialize(),
                 dataType: 'json',
                 success: function (json) {
-                    flashInfoNotification(flashInfo, "<%= t('questions.monitor.saved') %>");
+                    var savedText = '<%= t('saved') %>';
+                    flashInfoNotification(flashInfo, savedText);
                     trgParentCont.find(".org-translation").text(trgParentCont.find(".question-translation").val()).removeClass("hide");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
